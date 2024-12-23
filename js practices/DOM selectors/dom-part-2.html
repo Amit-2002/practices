@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM part-2</title>
+    <style>
+        .newClass{
+            background-color: green;
+        }
+        
+        .oldClass{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <div class="box">box
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
+    </div>
+    <p id="para">this is para</p> -->
+
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+
+
+                        <!-- post work -->
+        <!-- 2. create a saperate class for an element & give some stylling than create a new class using in js, give some styles. now combine those classes & its stylling to that element. -->
+    <p class="oldClass">this is a paragraph.</p>
+
+
+    <script>
+            // getAttribute
+        // const box = document.querySelector('.box')
+        // console.log(box.getAttribute('class'))
+
+        // const p = document.querySelector('#para')
+        // console.log(p.getAttribute('id'))
+
+        //     // setAttribute
+        // p.setAttribute('id', 'para2')
+        // console.log(p.getAttribute('id'))
+
+        // box.setAttribute('name','Amit')
+        // console.log(box.getAttribute('name'))
+
+        //     // style
+
+        //     // stylling of box class element
+        // box.style.height = '200px'
+        // box.style.width = '100px'
+        // box.style.border = '2px solid black'
+        // box.style.backgroundColor = 'blue'
+        // box.style.color = 'white'
+        // box.style.textAlign = 'center'
+        // box.style.fontSize = '26px'
+        // box.style.padding = '10px'
+
+        //     // stylling of p element with style attribute
+        // p.style.fontSize = '36px'
+        // p.style.backgroundColor = 'purple'
+        // p.style.color = 'white'
+        // p.style.padding = '10px'
+
+
+        //     // adding new element
+        // let newbtn = document.createElement('button');
+        // newbtn.innerText = 'Click me!';
+        // console.log(newbtn);
+
+        // const div = document.querySelector('div');
+        // div.append(newbtn)
+        // div.prepend(newbtn);
+        // div.before(newbtn)
+        // div.after(newbtn)
+
+        // p.after(newbtn)
+
+        // console.log(div);
+
+
+
+        // const newHeading = document.createElement('h1');
+        // newHeading.innerHTML = '<i>New Heading</i>'
+        // console.log(newHeading)
+        // console.log(newHeading.innerText) 
+        // console.log(newHeading.innerHTML)
+
+        // document.querySelector('body').prepend(newHeading);
+
+
+
+        //         // remove elements
+
+        // p.remove() // paragraph element removed
+        
+        // const first = document.querySelector('ul>li') // sudo child selector.
+        // console.log(first)
+        // first.remove(); // first li element is removed.
+
+        // const last = document.querySelector('ul li:last-child'); // desendent sudo child selectors
+        // console.log(last)
+        // last.remove() // last li element is removed.
+        
+
+
+
+
+
+                                // post work
+                        // 1. creating a new button
+        const newButton = document.createElement('button');
+        newButton.innerHTML = '<i>Click me!</i>';
+        newButton.style.backgroundColor = 'red';
+        newButton.style.color = 'white';
+        console.log(newButton)
+
+        document.querySelector('body').prepend(newButton);
+
+
+
+
+                        // 2. create a saperate class for an element & give some stylling than create a new class using in js, now combine those classes & its stylling to that element.
+        const para = document.querySelector('p');
+        // para.setAttribute('class', 'newClass') // this will override the styles of old class.
+        
+        console.log(para.classList); // returns all the list values of class attribute.
+        para.classList.add('newClass'); // this will add the newClass to existing class.
+
+        para.classList.remove('newClass'); // remove the class value from list
+
+
+
+
+        const parent = document.querySelector('ul')
+        console.log(parent.children) // returns HTML collection of all child elements of parent element.
+        console.log(parent.childNodes) // returns NodeList of all nodes those are presented in parent.
+
+        const firstChild = parent.firstElementChild // select the first element of parent node.
+        const lastChild = parent.lastElementChild   // select the  last element of parent
+        console.log(firstChild) 
+        console.log(lastChild) 
+
+        const siblingChild = firstChild.nextElementSibling; // selects next sibling element of current element in parent node.
+        console.log(siblingChild)
+
+
+        let parnt = lastChild.parentElement
+        console.log(parnt)
+        
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous functions</title>
+</head>
+<body>
+    <h1>Asynchronous Programming using Timer functions (Asynchronous functions)</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+
+
+
+    <script>
+       // generate a random color hex value;
+       const randomColor = function(){
+        const hex = '0123456789ABCDEF';
+        let color = '#';
+        for(let i = 0; i < 6; i++){
+            color += hex[Math.floor(Math.random() * 16)];
+        }
+        return color;
+       };
+    //    console.log(randomColor());
+
+
+       // taking referance of setInterval method to stop changing bgColor bg by clicking 'stop' button.
+    let intervalId;
+
+    // method to change color of background continously, when 'start' id button will be clicked.
+    const startChangingColor = function(){
+        intervalId = setInterval(changeBgColor, 1000) // taking referance of this function to stop its action when 'stop' button will be clicked. & calling a function.
+
+        // assgning random hex color value by selecting body tag to change its color.
+        function changeBgColor(){
+            document.body.style.backgroundColor = randomColor();
+        }
+    };
+    
+
+    // function to stop changing when 'stop' id stop' button will be clicked.
+    const stopChangingColor = function(){
+        clearInterval(intervalId); // stoping the action of changing bg color.
+    };
+
+    // selecting and adding event to both buttons
+    document.querySelector('#start').addEventListener('click', startChangingColor);
+    document.querySelector('#stop').addEventListener('click', stopChangingColor);
+    </script>
+</body>
+</html>

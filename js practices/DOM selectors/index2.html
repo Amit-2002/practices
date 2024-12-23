@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | create new element</title>
+</head>
+<body style="background-color: #212121;">
+    <div class="parent" style="color: white;">
+        <!-- this is comment         -->
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+    </div>
+
+
+    <script>
+        // const parent = document.querySelector(".parent")
+        // console.log(parent)
+        // console.log(parent.children)
+        // console.log(parent.children[1])
+        // console.log(parent.children[1].innerHTML)
+        // for(let i=0; i<parent.children.length; i++){
+        //     console.log(parent.children[i].innerHTML)
+        // }
+        // parent.children[1].style.color = "green"
+        // parent.children[0].style.padding = "10px"
+        // parent.children[0].style.backgroundColor = "orange"
+
+        // console.log(parent.firstElementChild)
+        // console.log(parent.lastElementChild)
+
+        // const dayOne = document.querySelector(".day")
+        // console.log(dayOne)
+        // console.log(dayOne.parentElement)
+        // console.log(dayOne.nextElementSibling)
+        // console.log("NodeList : ", parent.childNodes)
+    </script>
+</body>
+            <!-- creating new element -->
+<script>
+    const newdiv = document.createElement("div")
+    console.log(newdiv)
+    newdiv.className = "newdiv-class"
+    newdiv.id = "newdiv-id"
+    newdiv.setAttribute("title", "title of newdiv")
+    newdiv.style.color = "white"
+    newdiv.style.backgroundColor = 'green'
+    newdiv.style.padding = "10px"
+    newdiv.style.width = '50%'
+
+    newdiv.innerText = "This is new element"
+
+    // const newdivText = document.createTextNode("THIS IS NEW ELEMENT")
+    // newdiv.appendChild(newdivText)
+
+    document.body.append(newdiv)
+
+</script>
+
+</html>

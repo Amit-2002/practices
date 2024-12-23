@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in JS</title>
+    <style>
+        div{
+            height:100px;
+            width:100px;
+            border: 1px solid black;
+            background-color:dodgerblue;
+            padding: 10px;
+        }
+            
+                /* toggling button*/
+        .light{
+            background-color: white;
+            color: black;
+        }
+        .dark{
+            background-color: black;
+            color: white;
+        }
+
+
+                /* removing element by clicking */
+        .box {
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+            margin: 10px;
+            text-align: center;
+            align-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+
+    </style>
+</head>
+<body>
+                <!-- inline event handling -->
+    <h2>Inline Event handling</h2>
+    <button onclick="console.log('button clicked'); alert('Button was clicked')">Click me!</button>
+
+    <button ondblclick="console.log('button is clicked 2x');" onmouseover="alert('you are  in div')">Double click me!</button> <!-- not working -->
+
+    <div onmouseover="alert('you are  in div');">mouse hover on me</div>
+
+
+                <!-- Event handling in js -->
+    <h2>Event handling in js</h2>
+    <button id="btn1">btn1</button>
+
+    <div class="box">event by js</div>
+
+                <!-- event handling using event listener -->
+    <button class="btn2">listener</button>
+
+    <butthon class="btn3">event rmv</butthon>
+
+
+
+                <!-- practice tasks -->
+        <!-- 1. toggle butthon that changes background dark to light mode while clicking over the button -->
+    <button id="mode">change mode</button>
+
+
+
+
+                <!-- remove an element by clicking over it -->
+    <ul>
+        <li>
+            <div class="box" id="b1">Box 1</div>
+        </li>  
+
+        <li>
+            <div class="box" id="b2">Box 2</div>
+        </li>
+
+        <li>
+            <div class="box" id="b3">Box 3</div>
+        </li>
+
+        <li>
+            <div class="box" id="b4">Box 4</div>
+        </li>
+
+        <li>
+            <div class="box" id="b5">Box 5</div>
+        </li>
+    </ul>
+
+
+
+
+
+    <script>
+        // onclick event
+        const btn1 = document.querySelector('#btn1');
+        btn1.onclick = () =>{
+            console.log("Button is clicked");
+            let a = 24;
+            a++;
+            console.log(a)
+        }
+        // onmouseover event
+        const div = document.querySelector('.box');
+        div.onmouseover = () => {
+            console.log("you are inside div")
+            alert('you are inside div')
+        }
+
+        // priority checking bet inline vs js event handling on same element. 
+        const button = document.querySelector('button');
+        button.onclick = () => {
+            console.log('Event handling by js')  // js handling has high priority
+            alert('handing by js')
+        }
+
+        // event object with lots of properties
+        btn1.onclick = (evt) =>{
+            console.log(evt)
+            console.log(evt.target); // imp & most useful
+            console.log(evt.type) // imp & most useful
+            console.log(evt.clientX, evt.clientY)
+        }
+
+
+            // event handling using addEventListener
+
+        const btn2 = document.querySelector('.btn2');
+        // console.log(btn2)
+        btn2.addEventListener('click', () => {
+            console.log('handling using event listner')
+        })
+
+        btn2.addEventListener('click', (e)=>{
+            console.log("btn2 is pressed")
+            console.log(e);
+            console.log(e.target)
+            console.log(e.type)
+            console.log(e.clientX)
+            console.log(e.clientY)           
+        })
+
+
+
+            // removing an event using removeEventListener (callback referance should be same to remove)
+        const btn3 = document.querySelector('.btn3')
+        btn3.addEventListener('click', (e) => {
+            console.log('btn3 is pressed - handler 1')
+        })
+
+        btn3.addEventListener('click', (e) => {
+            console.log('btn3 is pressed - handler 2')
+        })
+        
+        btn3.addEventListener('click', (e) => {
+            console.log("btn3 is pressed - handler 3")
+        })
+
+        btn3.addEventListener('click', (e) => {
+            console.log('btn3 is pressed - handler 4')
+        })
+        
+
+
+            // creating this callback (this event handler will be removed)
+        const handler5 = (e) =>{
+            console.log('btn3 is pressed - handler 5')
+            console.log(e)
+            console.log(e.target)
+        } 
+
+            // adding this event handler
+        btn3.addEventListener('click', handler5)
+
+        btn3.removeEventListener('click', handler5); // callback(event handler is removed here)
+
+        
+
+
+                        // practic tasks1. toggle1. toggle butthon that changes background dark to light mode while clicking over the button butthon that changes background dark to light mode while clicking over the button
+            // 1. toggle butthon that changes background dark to light mode while clicking over the button
+        // way-1
+        // const modebtn = document.querySelector('#mode');
+        // const body = document.querySelector('body');
+        // let mode = 'light'
+
+        // modebtn.addEventListener('click', function(e){
+        //     if (mode === 'light'){
+        //         mode = 'dark'
+        //         body.style.backgroundColor = 'black'
+        //         body.style.color = 'white'
+        //     }
+        //     else{
+        //         mode = 'light'
+        //         body.style.backgroundColor = 'white'
+        //         body.style.color = 'black'
+        //     }
+        //     console.log(mode);
+            
+        // })
+
+
+
+        // way-2 : using class of css
+        const body = document.querySelector('body')
+        const modebtn = document.querySelector('#mode')
+        let mode = 'light';
+
+        modebtn.addEventListener('click', (e) => {
+            if (mode === 'light'){
+                mode = 'dark'
+                // body.className = 'dark'
+                body.classList.add('dark');
+                body.classList.remove('light')
+
+            }
+            else{
+                mode = 'light'
+                // body.className = 'light'
+                body.classList.add('light')
+                body.classList.remove('dark')
+            }
+            console.log(mode)
+        })
+
+
+
+
+                        // removing element by clicking over it
+        const ul = document.querySelector('ul')
+        // console.log(ul)
+        ul.addEventListener('click', function(e){
+            // console.log(e.targetparentNode)
+            // let removeIt = e.target.parentNode;
+            // removeIt.remove();
+            console.log(e.target.tagName)
+            if (e.target.tagName === 'DIV'){
+                removeIt = e.target.parentNode
+                console.log(removeIt)
+                removeIt.remove()
+            }
+        },false)
+        
+
+    </script>
+</body> 
+</html>

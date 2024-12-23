@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>DOM selectors</title> -->
+     <title>DOM</title>
+    <style>
+        /* .bg-black {
+            background-color: #212121;
+            color: white;
+        } */
+
+        .box {
+            height: 100px;
+            width: 100px;
+            border: 2px solid orange;
+            margin: 5px;
+            text-align: center;
+            align-content: center;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- <div class="bg-black">
+        <h1 class="heading" id="title">I am learning DOM on chai or code. <span style="display: none;">unvisible
+                text</span></h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, minus.</p>
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, assumenda?</h1>
+
+        <input type="password" id="pass">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+
+    </div> -->
+
+    <!-- <div>
+        <h1 id="heading">DOM</h1>
+        <h1 class="myclass">DOM manipulation</h1>
+        <h4 class="myclass">Topic : starter code</h4>
+        <p>Let's learn DOM.</p>
+        <p>paragraph 2</p>
+        <button id="myid">click me!</button>
+    </div>
+
+    <div class="container">
+        innerText
+        <ul>
+            <li>text1</li>
+            <li>text2</li>
+            <li>text3</li>
+        </ul>
+    </div>
+
+    <h2 style="visibility: hidden; background-color: yellow;">hidden content</h2> -->
+
+
+
+
+
+                                <!-- post work -->
+                        <!-- 1. adding some new text in an element -->
+    <h2>Hello JavaScript!</h2>
+
+                        <!-- 2. create three common class divs & change there old content with new uniqe content. -->
+    <div class="box">first</div>
+    <div class="box">second</div>
+    <div class="box">third</div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+    
+    <script>
+        // console.log(window)
+        // console.log(window.document)
+        // console.log(document)
+
+        // console.log(document.body)
+        // console.dir(document.body)
+
+        // console.log(document.body.div)
+
+                // selecting element by id
+        // console.log(document.getElementById('heading')) // h1 tag
+        // const headingEle = document.getElementById("heading") // h1
+        // console.dir(headingEle) 
+
+
+                // selecting element by class
+        // const myclassEle = document.getElementsByClassName('myclass')
+        // console.log(myclassEle)
+        // console.dir(myclassEle)
+
+
+                // selecting by tag
+        // const paras = document.getElementsByTagName('p')
+        // console.log(paras)
+
+
+                // selecting by querySelector
+        // const firstEl = document.querySelector('p') // select only the first element
+        // console.log(firstEl) 
+
+        // const allEl = document.querySelectorAll('p') // select all element those have same tagname.
+        // console.log(allEl)
+
+
+        // const firstEl = document.querySelector('.myclass')
+        // console.dir(firstEl)
+        // const allEl = document.querySelectorAll('.myclass')
+        // console.dir(allEl)
+
+
+        // const idEl = document.querySelector('#myid');
+        // console.log(idEl)
+
+
+
+                    // element properties
+            // 1. tagName
+        // const h1El = document.querySelector('#heading')
+        // const buttonEl = document.querySelector('button')
+        // console.log(h1El)
+        // console.log(h1El.tagName)
+
+        // console.log(buttonEl)
+        // console.log(buttonEl.tagName)
+
+
+        //     // 2. innerText (gives text content of element & all its children)
+        // const containerEle = document.querySelector('.container')
+        // console.log(containerEle)
+        // console.log(containerEle.innerText)
+        // console.log(containerEle.children) // return all childrens of an parent element
+
+
+        //     // 3. innerHTML (gives text content of an element & also HTML with text content)
+        // console.log(containerEle.innerHTML) 
+
+
+        //     // 4. textContent (returns even hidden content of an element)
+        // const h2El = document.querySelector('h2')
+        // console.log(h2El)
+        // console.log(h2El.innerText)
+        // console.log(h2El.textContent)
+
+
+
+
+
+                                // post work
+                        // 1. adding some new text to an element
+        // const headingEl = document.querySelector('h2');
+        // console.log(headingEl.innerText)
+
+        // headingEl.innerText = headingEl.innerText + "by Apna College learners." // concatination
+
+
+                        // 2. create three common class divs & change there old content with new uniqe content.
+        // way 1.
+        // const boxesEl = document.querySelectorAll('.box')
+        // console.log(boxesEl)
+        // boxesEl[0].innerText = "Unique value 1"
+        // boxesEl[1].innerText = "Unique value 2"
+        // boxesEl[2].innerText = "Unique value 3"
+
+
+        // way 2.
+        const boxes = document.querySelectorAll('.box');
+        console.log(boxes)
+
+        val = 1
+        // boxes.forEach(element => {
+        //     element.innerText = "Unique value " + val
+        //     console.log(element.innerText)
+        //     val+=1
+        // });
+
+        for (box of boxes){
+            console.log(box.innerText   )
+            box.innerText = `Unique value ${val}`
+            val++
+            // console.log(box)
+        }
+
+        
+
+    </script>
+</body>
+
+</html>
